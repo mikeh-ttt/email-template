@@ -28,7 +28,7 @@ export function Form() {
               id='name'
               placeholder='Enter your name'
               value={formData.name || ''}
-              onChange={(e) => updateFormData('name', e.target.value)}
+              onChange={(e) => updateFormData({ name: e.target.value })}
             />
           </div>
           <div className='grid gap-2'>
@@ -37,7 +37,9 @@ export function Form() {
               id='job-position'
               placeholder='Enter your job position'
               value={formData['job-position'] || ''}
-              onChange={(e) => updateFormData('job-position', e.target.value)}
+              onChange={(e) =>
+                updateFormData({ 'job-position': e.target.value })
+              }
             />
           </div>
           <div className='grid gap-2'>
@@ -46,7 +48,7 @@ export function Form() {
               id='linked-url'
               placeholder='Enter your LinkedIn URL'
               value={formData['linked-url'] || ''}
-              onChange={(e) => updateFormData('linked-url', e.target.value)}
+              onChange={(e) => updateFormData({ 'linked-url': e.target.value })}
             />
           </div>
 
@@ -57,7 +59,7 @@ export function Form() {
               placeholder='Enter your LinkedIn display name'
               value={formData['linked-display-name'] || ''}
               onChange={(e) =>
-                updateFormData('linked-display-name', e.target.value)
+                updateFormData({ 'linked-display-name': e.target.value })
               }
             />
           </div>
@@ -67,7 +69,7 @@ export function Form() {
               id='phone'
               placeholder='Enter your phone number'
               value={formData.phone || ''}
-              onChange={(e) => updateFormData('phone', e.target.value)}
+              onChange={(e) => updateFormData({ phone: e.target.value })}
             />
           </div>
         </form>
