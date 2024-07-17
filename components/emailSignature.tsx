@@ -8,8 +8,6 @@ const EmailSignature: React.FC = () => {
   const { formData, updateFormData } = useFormData();
   const { richTextRef, copyToClipboard } = useCopyRichText();
 
-  console.log({ formData });
-
   return (
     <div>
       <head>
@@ -26,7 +24,7 @@ const EmailSignature: React.FC = () => {
         </span>
         <br />
         <span style={{ fontSize: '12.85px' }}>{formData['job-position']}</span>
-        {formData['linked-url'] && (
+        {formData['linked-url'] && formData['linked-display-name'] && (
           <>
             <br />
             <span
@@ -41,7 +39,11 @@ const EmailSignature: React.FC = () => {
         )}
         {formData.phone && (
           <>
-            <span style={{ margin: '0 10px' }}>|</span>
+            {formData['linked-url'] && formData['linked-display-name'] ? (
+              <span style={{ margin: '0 10px' }}>|</span>
+            ) : (
+              <br />
+            )}
             <span
               style={{ fontSize: '12.85px', color: '#666666', fontWeight: 700 }}
             >
