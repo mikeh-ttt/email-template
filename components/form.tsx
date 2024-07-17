@@ -43,7 +43,7 @@ export function Form() {
             />
           </div>
           <div className='grid gap-2'>
-            <Label htmlFor='linked-url'>LinkedIn URL</Label>
+            <Label htmlFor='linked-url'>LinkedIn URL (optional)</Label>
             <Input
               id='linked-url'
               placeholder='Enter your LinkedIn URL'
@@ -53,7 +53,9 @@ export function Form() {
           </div>
 
           <div className='grid gap-2'>
-            <Label htmlFor='linked-display-name'>LinkedIn Display Name</Label>
+            <Label htmlFor='linked-display-name'>
+              LinkedIn Display Name (optional)
+            </Label>
             <Input
               id='linked-display-name'
               placeholder='Enter your LinkedIn display name'
@@ -64,7 +66,7 @@ export function Form() {
             />
           </div>
           <div className='grid gap-2'>
-            <Label htmlFor='phone'>Phone Number</Label>
+            <Label htmlFor='phone'>Phone Number (optional)</Label>
             <Input
               id='phone'
               placeholder='Enter your phone number'

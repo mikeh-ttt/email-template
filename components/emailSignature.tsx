@@ -26,15 +26,19 @@ const EmailSignature: React.FC = () => {
         </span>
         <br />
         <span style={{ fontSize: '12.85px' }}>{formData['job-position']}</span>
-        <br />
-        <span
-          style={{ fontSize: '12.85px', color: '#666666', fontWeight: 700 }}
-        >
-          LinkedIn:{' '}
-        </span>
-        <a style={{ fontSize: '12.85px' }} href={formData['linked-url']}>
-          {formData['linked-display-name']}
-        </a>
+        {formData['linked-url'] && (
+          <>
+            <br />
+            <span
+              style={{ fontSize: '12.85px', color: '#666666', fontWeight: 700 }}
+            >
+              LinkedIn:{' '}
+            </span>
+            <a style={{ fontSize: '12.85px' }} href={formData['linked-url']}>
+              {formData['linked-display-name']}
+            </a>
+          </>
+        )}
         {formData.phone && (
           <>
             <span style={{ margin: '0 10px' }}>|</span>
