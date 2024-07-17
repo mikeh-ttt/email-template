@@ -1,30 +1,44 @@
-'use client';
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-export interface FormData {
+// Define the FormData type
+type FormData = {
   name: string;
   'job-position': string;
   'linked-url': string;
   'linked-display-name': string;
   phone: string;
-}
+};
 
-interface FormDataContextType {
+// Define the context type
+type FormDataContextType = {
   formData: FormData;
-  updateFormData: (key: keyof FormData, value: string) => void;
-}
+  updateFormData: (newFormData: Partial<FormData>) => void;
+};
 
+// Create the context with a default value
 const FormDataContext = createContext<FormDataContextType | undefined>(
   undefined
 );
 
-export const FormDataProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [formData, setFormData] = useState<{ [key: string]: string }>({});
+const useFormData = () => {
+  const context = useContext(FormDataContext);
+  if (context === undefined) {
+    throw new Error('useFormData must be used within a FormDataProvider');
+  }
+  return context;
+};
 
-  const updateFormData = (key: string, value: string) => {
-    setFormData((prevData) => ({ ...prevData, [key]: value }));
+const FormDataProvider = ({ children }: { children: ReactNode }) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    'job-position': '',
+    'linked-url': '',
+    'linked-display-name': '',
+    phone: '',
+  });
+
+  const updateFormData = (newFormData: Partial<FormData>) => {
+    setFormData((prevFormData) => ({ ...prevFormData, ...newFormData }));
   };
 
   return (
@@ -34,10 +48,4 @@ export const FormDataProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
-export const useFormData = (): FormDataContextType => {
-  const context = useContext(FormDataContext);
-  if (!context) {
-    throw new Error('useFormData must be used within a FormDataProvider');
-  }
-  return context;
-};
+export { FormDataProvider, useFormData };
