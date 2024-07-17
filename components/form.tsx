@@ -1,23 +1,16 @@
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 import { useFormData } from '@/providers/FormDataProvider';
 
 export function Form() {
   const { formData, updateFormData } = useFormData();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    updateFormData(id as keyof FormData, value);
-  };
 
   return (
     <Card className='w-full max-w-md'>
@@ -35,7 +28,7 @@ export function Form() {
               id='name'
               placeholder='Enter your name'
               value={formData.name || ''}
-              onChange={handleChange}
+              onChange={(e) => updateFormData('name', e.target.value)}
             />
           </div>
           <div className='grid gap-2'>
@@ -44,7 +37,7 @@ export function Form() {
               id='job-position'
               placeholder='Enter your job position'
               value={formData['job-position'] || ''}
-              onChange={handleChange}
+              onChange={(e) => updateFormData('job-position', e.target.value)}
             />
           </div>
           <div className='grid gap-2'>
@@ -53,7 +46,7 @@ export function Form() {
               id='linked-url'
               placeholder='Enter your LinkedIn URL'
               value={formData['linked-url'] || ''}
-              onChange={handleChange}
+              onChange={(e) => updateFormData('linked-url', e.target.value)}
             />
           </div>
 
@@ -63,7 +56,9 @@ export function Form() {
               id='linked-display-name'
               placeholder='Enter your LinkedIn display name'
               value={formData['linked-display-name'] || ''}
-              onChange={handleChange}
+              onChange={(e) =>
+                updateFormData('linked-display-name', e.target.value)
+              }
             />
           </div>
           <div className='grid gap-2'>
@@ -72,7 +67,7 @@ export function Form() {
               id='phone'
               placeholder='Enter your phone number'
               value={formData.phone || ''}
-              onChange={handleChange}
+              onChange={(e) => updateFormData('phone', e.target.value)}
             />
           </div>
         </form>
