@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useFormData } from '@/providers/FormDataProvider';
-import { Button } from './ui/button';
-import useCopyRichText from '@/providers/useCopyRichText';
+import { useFormData } from "@/providers/FormDataProvider";
+import { Button } from "./ui/button";
+import useCopyRichText from "@/providers/useCopyRichText";
 
 const EmailSignature: React.FC = () => {
   const { formData, updateFormData } = useFormData();
@@ -11,74 +11,74 @@ const EmailSignature: React.FC = () => {
   return (
     <div>
       <head>
-        <meta charSet='UTF-8' />
+        <meta charSet="UTF-8" />
         <title>Email Signature</title>
       </head>
       <div
         ref={richTextRef}
-        id='email-signature'
-        style={{ fontFamily: 'Arial, sans-serif' }}
+        id="email-signature"
+        style={{ fontFamily: "Arial, sans-serif" }}
       >
-        <span style={{ fontWeight: 700, fontSize: '18px' }}>
+        <span style={{ fontWeight: 700, fontSize: "18px" }}>
           {formData.name}
         </span>
         <br />
-        <span style={{ fontSize: '12.85px' }}>{formData['job-position']}</span>
-        {formData['linked-url'] && formData['linked-display-name'] && (
+        <span style={{ fontSize: "12.85px" }}>{formData["job-position"]}</span>
+        {formData["linked-url"] && formData["linked-display-name"] && (
           <>
             <br />
             <span
-              style={{ fontSize: '12.85px', color: '#666666', fontWeight: 700 }}
+              style={{ fontSize: "12.85px", color: "#666666", fontWeight: 700 }}
             >
-              LinkedIn:{' '}
+              LinkedIn:{" "}
             </span>
-            <a style={{ fontSize: '12.85px' }} href={formData['linked-url']}>
-              {formData['linked-display-name']}
+            <a style={{ fontSize: "12.85px" }} href={formData["linked-url"]}>
+              {formData["linked-display-name"]}
             </a>
           </>
         )}
         {formData.phone && (
           <>
-            {formData['linked-url'] && formData['linked-display-name'] ? (
-              <span style={{ margin: '0 10px' }}>|</span>
+            {formData["linked-url"] && formData["linked-display-name"] ? (
+              <span style={{ margin: "0 10px" }}>|</span>
             ) : (
               <br />
             )}
             <span
-              style={{ fontSize: '12.85px', color: '#666666', fontWeight: 700 }}
+              style={{ fontSize: "12.85px", color: "#666666", fontWeight: 700 }}
             >
-              Phone:{' '}
+              Phone:{" "}
             </span>
-            <span style={{ fontSize: '12.85px' }}>{formData.phone}</span>
+            <span style={{ fontSize: "12.85px" }}>{formData.phone}</span>
           </>
         )}
         <br />
         <table
-          cellPadding='0'
-          cellSpacing='0'
-          width='300'
-          style={{ fontFamily: 'Arial, sans-serif' }}
+          cellPadding="0"
+          cellSpacing="0"
+          width="300"
+          style={{ fontFamily: "Arial, sans-serif" }}
         >
           <tbody>
             <tr>
               <td
                 style={{
-                  borderBottom: '2px solid #4794C8',
-                  paddingBottom: '2px',
+                  borderBottom: "2px solid #4794C8",
+                  paddingBottom: "2px",
                 }}
               ></td>
             </tr>
             <tr>
-              <td style={{ padding: '2px' }}></td>
+              <td style={{ padding: "2px" }}></td>
             </tr>
             <tr>
               <td>
-                <a href='https://www.ttt.studio/'>
+                <a href="https://www.ttt.studio/">
                   <img
-                    width='300'
-                    height='45'
-                    src='https://ttt-studios-website.s3.us-west-2.amazonaws.com/images/logo_withbg_noline.png'
-                    alt='TTT Studios'
+                    width="300"
+                    height="45"
+                    src="https://ttt-studios-website.s3.us-west-2.amazonaws.com/images/logo_withbg_noline.png"
+                    alt="TTT Studios"
                   />
                 </a>
               </td>
@@ -87,36 +87,41 @@ const EmailSignature: React.FC = () => {
         </table>
         <span
           style={{
-            color: '#666666',
-            paddingBottom: '5px',
+            color: "#666666",
+            paddingBottom: "5px",
             fontWeight: 700,
-            fontSize: '12.85px',
-            display: 'block',
+            fontSize: "12.85px",
+            display: "block",
           }}
         >
           Digital Consultancy and Software Development
         </span>
-        <div style={{ fontSize: '12.85px', display: 'block' }}>
-          <a href='https://www.ttt.studio/product-research-strategy'>
-            Product research & strategy
+        <div style={{ fontSize: "12.85px", display: "block" }}>
+          <a href="https://www.ttt.studio/expertise#identify-the-right-solution">
+            Identify the Right Solution
           </a>
         </div>
-        <div style={{ fontSize: '12.85px', display: 'block' }}>
-          <a href='https://www.ttt.studio/design-develop-new-product'>
-            Design and develop a new product
+        <div style={{ fontSize: "12.85px", display: "block" }}>
+          <a href="https://www.ttt.studio/expertise#build-from-scratch">
+            Build Software from Scratch
           </a>
         </div>
-        <div style={{ fontSize: '12.85px', display: 'block' }}>
-          <a href='https://www.ttt.studio/improve-existing-product'>
-            Improve an existing product
+        <div style={{ fontSize: "12.85px", display: "block" }}>
+          <a href="https://www.ttt.studio/expertise#modernize-your-systems">
+            Modernize Your Systems
+          </a>
+        </div>
+        <div style={{ fontSize: "12.85px", display: "block" }}>
+          <a href="https://www.ttt.studio/expertise#continue-a-digital-project">
+            Continue a Digital Project
           </a>
         </div>
         <p
           style={{
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '10px',
-            fontStyle: 'italic',
-            color: '#666666',
+            fontFamily: "Arial, sans-serif",
+            fontSize: "10px",
+            fontStyle: "italic",
+            color: "#666666",
           }}
         >
           <br />
@@ -132,7 +137,7 @@ const EmailSignature: React.FC = () => {
         </p>
       </div>
 
-      <Button className='w-full mt-4' onClick={copyToClipboard}>
+      <Button className="w-full mt-4" onClick={copyToClipboard}>
         Copy
       </Button>
     </div>
