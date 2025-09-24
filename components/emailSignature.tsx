@@ -61,15 +61,6 @@ const EmailSignature: React.FC = () => {
         >
           <tbody>
             <tr>
-              <td
-                style={{
-                  borderBottom: "2px solid #4794C8",
-                  paddingBottom: "2px",
-                }}
-              ></td>
-            </tr>
-
-            <tr>
               <td>
                 <a href="https://www.ttt.studio/">
                   <img
