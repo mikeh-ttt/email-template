@@ -83,39 +83,21 @@ const EmailSignature: React.FC = () => {
                 </a>
               </td>
             </tr>
+             <tr>
+              <td>
+                <a href="https://handled.work/">
+                  <img
+                    width="300"
+                    height="45"
+                    src="https://handled.work/images/logo_withbg_noline.png"
+                    alt="Handled AI"
+                  />
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
-        <span
-          style={{
-            color: "#666666",
-            paddingBottom: "5px",
-            fontWeight: 700,
-            fontSize: "12.85px",
-            display: "block",
-          }}
-        >
-          Digital Consultancy and Software Development
-        </span>
-        <div style={{ fontSize: "12.85px", display: "block" }}>
-          <a href="https://www.ttt.studio/expertise#identify-the-right-solution">
-            Identify the Right Solution
-          </a>
-        </div>
-        <div style={{ fontSize: "12.85px", display: "block" }}>
-          <a href="https://www.ttt.studio/expertise#build-from-scratch">
-            Build Software from Scratch
-          </a>
-        </div>
-        <div style={{ fontSize: "12.85px", display: "block" }}>
-          <a href="https://www.ttt.studio/expertise#modernize-your-systems">
-            Modernize Your Systems
-          </a>
-        </div>
-        <div style={{ fontSize: "12.85px", display: "block" }}>
-          <a href="https://www.ttt.studio/expertise#continue-a-digital-project">
-            Continue a Digital Project
-          </a>
-        </div>
+       
         <p
           style={{
             fontFamily: "Arial, sans-serif",
