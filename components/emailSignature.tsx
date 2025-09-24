@@ -89,7 +89,7 @@ const EmailSignature: React.FC = () => {
                   <img
                     width="300"
                     height="45"
-                    src="https://handled.work/images/logo_withbg_noline.png"
+                    src="https://ttt-studios-website.s3.us-west-2.amazonaws.com/images/handled_logo.png"
                     alt="Handled AI"
                   />
                 </a>
