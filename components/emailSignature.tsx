@@ -77,13 +77,13 @@ const EmailSignature: React.FC = () => {
                   <img
                     width="300"
                     height="45"
-                    src="https://ttt-studios-website.s3.us-west-2.amazonaws.com/images/logo_withbg_noline.png"
+                    src="https://ttt-studios-website.s3.us-west-2.amazonaws.com/images/ttt_logo.png"
                     alt="TTT Studios"
                   />
                 </a>
               </td>
             </tr>
-             <tr>
+            <tr>
               <td>
                 <a href="https://handled.work/">
                   <img
@@ -97,7 +97,7 @@ const EmailSignature: React.FC = () => {
             </tr>
           </tbody>
         </table>
-       
+
         <p
           style={{
             fontFamily: "Arial, sans-serif",
