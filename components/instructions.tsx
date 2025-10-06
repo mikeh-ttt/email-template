@@ -39,7 +39,7 @@ export function GmailInstructionsDialog() {
               <div className="flex-1">
                 <h3 className="font-semibold mb-1">Copy your signature</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Click the "Copy signature" button above to copy your signature
+                  Click the &quot;Copy signature&quot; button above to copy your signature
                   to your clipboard.
                 </p>
               </div>
@@ -63,8 +63,7 @@ export function GmailInstructionsDialog() {
                   >
                     Gmail
                   </a>
-                  , click the gear icon in the top right corner, and select "See
-                  all settings".
+                  , click the gear icon in the top right corner, and select &quot;See all settings&quot;.
                 </p>
               </div>
             </div>
@@ -80,7 +79,7 @@ export function GmailInstructionsDialog() {
                   Navigate to the Signature section
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Scroll down to the "Signature" section in the General tab.
+                  Scroll down to the &quot;Signature&quot; section in the General tab.
                 </p>
               </div>
             </div>
@@ -96,7 +95,7 @@ export function GmailInstructionsDialog() {
                   Create or edit your signature
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Click "+ Create new" to add a new signature, or select an
+                  Click &quot;+ Create new&quot; to add a new signature, or select an
                   existing one to edit. Give it a name if creating a new one.
                 </p>
               </div>
@@ -127,7 +126,7 @@ export function GmailInstructionsDialog() {
               <div className="flex-1">
                 <h3 className="font-semibold mb-1">Set signature defaults</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Choose when to use this signature in the "Signature defaults"
+                  Choose when to use this signature in the &quot;Signature defaults&quot;
                   section:
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1 ml-4">
@@ -150,8 +149,8 @@ export function GmailInstructionsDialog() {
               <div className="flex-1">
                 <h3 className="font-semibold mb-1">Save your changes</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Scroll to the bottom of the settings page and click "Save
-                  Changes". Your signature is now ready to use!
+                  Scroll to the bottom of the settings page and click &quot;Save
+                  Changes&quot;. Your signature is now ready to use!
                 </p>
               </div>
             </div>
