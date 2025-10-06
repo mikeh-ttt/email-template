@@ -1,6 +1,7 @@
 "use client";
 
 import { Form } from "@/components/form";
+import { GmailInstructionsDialog } from "@/components/instructions";
 import { SignaturePreview } from "@/components/signature-preview";
 import { Button } from "@/components/ui/button";
 import { FormDataProvider } from "@/providers/FormDataProvider";
@@ -55,6 +56,10 @@ export default function Home() {
                   <Monitor className="h-4 w-4" />
                   <span className="sr-only">Desktop view</span>
                 </Button>
+              </div>
+
+              <div className="w-min">
+                <GmailInstructionsDialog />
               </div>
             </div>
 

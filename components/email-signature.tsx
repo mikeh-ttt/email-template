@@ -109,4 +109,5 @@ const EmailSignature = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
+EmailSignature.displayName = "EmailSignature";
 export default EmailSignature;

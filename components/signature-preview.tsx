@@ -317,8 +317,8 @@ export function SignaturePreview({ deviceMode }: SignaturePreviewProps) {
                   the next steps we should take moving forward.
                 </p>
                 <p className="mb-4">
-                  I believe we're making great progress and I'm excited to
-                  continue working together on this initiative.
+                  I believe we&apos;re making great progress and I&apos;m
+                  excited to continue working together on this initiative.
                 </p>
                 <p className="mb-6">Best regards,</p>
 
