@@ -1,12 +1,10 @@
 "use client";
 
+import { forwardRef } from "react";
 import { useFormData } from "@/providers/FormDataProvider";
-import { Button } from "./ui/button";
-import useCopyRichText from "@/providers/useCopyRichText";
 
-const EmailSignature: React.FC = () => {
-  const { formData, updateFormData } = useFormData();
-  const { richTextRef, copyToClipboard } = useCopyRichText();
+const EmailSignature = forwardRef<HTMLDivElement>((props, ref) => {
+  const { formData } = useFormData();
 
   return (
     <div>
@@ -15,7 +13,7 @@ const EmailSignature: React.FC = () => {
         <title>Email Signature</title>
       </head>
       <div
-        ref={richTextRef}
+        ref={ref}
         id="email-signature"
         style={{ fontFamily: "Arial, sans-serif" }}
       >
@@ -107,12 +105,8 @@ const EmailSignature: React.FC = () => {
           immediately notify the sender and delete it. Thank you.
         </p>
       </div>
-
-      <Button className="w-full mt-4" onClick={copyToClipboard}>
-        Copy
-      </Button>
     </div>
   );
-};
+});
 
 export default EmailSignature;

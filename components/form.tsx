@@ -1,84 +1,121 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useFormData } from '@/providers/FormDataProvider';
+"use client";
+
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Combobox } from "@/components/ui/combobox";
+import { useFormData } from "@/providers/FormDataProvider";
+import { useState } from "react";
 
 export function Form() {
   const { formData, updateFormData } = useFormData();
 
-  return (
-    <Card className='w-full max-w-md'>
-      <CardHeader>
-        <CardTitle>Email signature generator</CardTitle>
-        <CardDescription>
-          Fill out the form below to update email signature template
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form className='grid gap-4'>
-          <div className='grid gap-2'>
-            <Label htmlFor='name'>Name</Label>
-            <Input
-              id='name'
-              placeholder='Enter your name'
-              value={formData.name || ''}
-              onChange={(e) => updateFormData({ name: e.target.value })}
-            />
-          </div>
-          <div className='grid gap-2'>
-            <Label htmlFor='job-position'>Job Position</Label>
-            <Input
-              id='job-position'
-              placeholder='Enter your job position'
-              value={formData['job-position'] || ''}
-              onChange={(e) =>
-                updateFormData({ 'job-position': e.target.value })
-              }
-            />
-          </div>
-          <div className='grid gap-2'>
-            <Label htmlFor='linked-url'>LinkedIn URL (optional)</Label>
-            <Input
-              id='linked-url'
-              placeholder='Enter your LinkedIn URL'
-              value={formData['linked-url'] || ''}
-              onChange={(e) => updateFormData({ 'linked-url': e.target.value })}
-            />
-          </div>
+  const handleChange = (key: string, value: string) => {
+    updateFormData({ [key]: value });
+  };
 
-          <div className='grid gap-2'>
-            <Label htmlFor='linked-display-name'>
-              LinkedIn Display Name (optional)
-            </Label>
-            <Input
-              id='linked-display-name'
-              placeholder='Enter your LinkedIn display name'
-              value={formData['linked-display-name'] || ''}
-              onChange={(e) =>
-                updateFormData({ 'linked-display-name': e.target.value })
-              }
-            />
-          </div>
-          <div className='grid gap-2'>
-            <Label htmlFor='phone'>Phone Number (optional)</Label>
-            <Input
-              id='phone'
-              placeholder='Enter your phone number'
-              value={formData.phone || ''}
-              onChange={(e) => updateFormData({ phone: e.target.value })}
-            />
-          </div>
-        </form>
-      </CardContent>
-      {/* <CardFooter className='flex justify-end'>
-        <Button type='submit'>Update Profile</Button>
-      </CardFooter> */}
+  const name = formData.name || "";
+  const jobPosition = formData["job-position"] || "";
+  const linkedinUrl = formData["linked-url"] || "";
+  const linkedinDisplayName = formData["linked-display-name"] || "";
+  const phoneNumber = formData.phone || "";
+  
+  // Job position suggestions
+  const jobPositionOptions = [
+    { value: "Software Engineer", label: "Software Engineer" },
+    { value: "Product Manager", label: "Product Manager" },
+    { value: "UX Designer", label: "UX Designer" },
+    { value: "Data Scientist", label: "Data Scientist" },
+    { value: "Marketing Specialist", label: "Marketing Specialist" },
+    { value: "Project Manager", label: "Project Manager" },
+    { value: "CEO", label: "CEO" },
+    { value: "CTO", label: "CTO" },
+    { value: "CFO", label: "CFO" },
+    { value: "COO", label: "COO" },
+  ];
+
+  return (
+    <Card className="w-full max-w-md p-6">
+      <div className="space-y-1 mb-4">
+        <h1 className="text-2xl font-semibold leading-none tracking-tight">
+          Email signature generator
+        </h1>
+      </div>
+
+      <div className="space-y-5">
+        {/* Name */}
+        <div className="space-y-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => handleChange("name", e.target.value)}
+          />
+        </div>
+
+        {/* Job Position (uses same key: "job-position") */}
+        <div className="space-y-2">
+          <Label htmlFor="jobPosition">Job Position</Label>
+          <Combobox
+            options={jobPositionOptions}
+            value={jobPosition}
+            onChange={(value) => handleChange("job-position", value)}
+            placeholder="Enter or select your job position"
+            emptyMessage="No matching job positions found."
+            allowCustomValue={true}
+          />
+        </div>
+
+        {/* LinkedIn URL (uses same key: "linked-url") */}
+        <div className="space-y-2">
+          <Label htmlFor="linkedinUrl">
+            LinkedIn URL{" "}
+            <span className="text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
+            id="linkedinUrl"
+            placeholder="https://linkedin.com/in/yourprofile"
+            value={linkedinUrl}
+            onChange={(e) => handleChange("linked-url", e.target.value)}
+          />
+        </div>
+
+        {/* LinkedIn Display Name (uses same key: "linked-display-name") */}
+        <div className="space-y-2">
+          <Label htmlFor="linkedinDisplayName">
+            LinkedIn Display Name{" "}
+            <span className="text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
+            id="linkedinDisplayName"
+            placeholder="Defaults to URL if empty"
+            value={linkedinDisplayName}
+            onChange={(e) =>
+              handleChange("linked-display-name", e.target.value)
+            }
+            disabled={!linkedinUrl}
+          />
+          <p className="text-xs text-muted-foreground">
+            Requires LinkedIn URL. If left empty, the URL will be used as
+            display text.
+          </p>
+        </div>
+
+        {/* Phone Number (same key: "phone") */}
+        <div className="space-y-2">
+          <Label htmlFor="phoneNumber">
+            Phone Number{" "}
+            <span className="text-muted-foreground">(optional)</span>
+          </Label>
+          <Input
+            id="phoneNumber"
+            placeholder="+1 (555) 123-4567"
+            value={phoneNumber}
+            onChange={(e) => handleChange("phone", e.target.value)}
+          />
+        </div>
+      </div>
     </Card>
   );
 }
